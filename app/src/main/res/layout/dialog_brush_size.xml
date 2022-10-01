@@ -1,46 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center_horizontal"
+     android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        <ScrollView
 
-        <ImageButton
-            android:id="@+id/brush_size_minus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="small image"
-            android:src="@drawable/ic_brush_size_minus"
-            app:layout_constraintBottom_toTopOf="@+id/brush_size_plus"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:fillViewport="true"
+            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:layout_editor_absoluteY="189dp"
+            tools:ignore="MissingConstraints">
 
-        <ImageButton
-            android:id="@+id/brush_size_plus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="large image"
-            android:src="@drawable/ic_brush_size_plus"
-            app:layout_constraintBottom_toTopOf="@id/brush_size_large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brush_size_minus" />
-
-        <ImageButton
-            android:id="@+id/brush_size_large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="large image"
-            android:src="@drawable/ic_brush_size_large"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brush_size_plus" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+                        <ImageButton
+                            android:id="@+id/brush_size_minus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="small image"
+                            android:src="@drawable/ic_brush_size_minus"
+                            app:layout_constraintBottom_toTopOf="@+id/brush_size_minus1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/brush_size_minus1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="small image1"
+                            android:src="@drawable/ic_brush_size_minus1"
+                            app:layout_constraintBottom_toTopOf="@+id/brush_size_minus2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.500"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/brush_size_minus"
+                            app:layout_constraintVertical_bias="0.500" />
+
+                        <ImageButton
+                            android:id="@+id/brush_size_minus2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="small image2"
+                            android:src="@drawable/ic_brush_size_minus2"
+                            app:layout_constraintBottom_toTopOf="@+id/brush_size_plus"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/brush_size_minus1"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <ImageButton
+                            android:id="@+id/brush_size_plus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="plus image"
+                            android:src="@drawable/ic_brush_size_plus"
+                            app:layout_constraintBottom_toTopOf="@id/brush_size_plus1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/brush_size_minus2" />
+
+
+                        <ImageButton
+                            android:id="@+id/brush_size_plus1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="plus image1"
+                            android:src="@drawable/ic_brush_size_plus1"
+                            app:layout_constraintBottom_toTopOf="@+id/brush_size_plus2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/brush_size_plus"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <ImageButton
+                            android:id="@+id/brush_size_plus2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="plus image2"
+                            android:src="@drawable/ic_brush_size_plus2"
+                            app:layout_constraintBottom_toTopOf="@id/brush_size_large"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/brush_size_plus1"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <ImageButton
+                            android:id="@+id/brush_size_large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="large image"
+                            android:src="@drawable/ic_brush_size_large"
+                            app:layout_constraintBottom_toTopOf="@id/brush_size_large2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.500"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/brush_size_plus2" />
+
+                        <ImageButton
+                            android:id="@+id/brush_size_large2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="large image2"
+                            android:src="@drawable/ic_brush_size_large2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/brush_size_large"
+                            app:layout_constraintVertical_bias="0.5" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

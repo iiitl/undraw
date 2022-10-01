@@ -129,14 +129,35 @@ class MainActivity : AppCompatActivity() {
             drawingView.setSizeForBrush(10f)
             brushDialog.dismiss()
         }
-        brushSizeBinding.brushSizePlus.setOnClickListener {
+        brushSizeBinding.brushSizeMinus1.setOnClickListener {
+            drawingView.setSizeForBrush(15f)
+            brushDialog.dismiss()
+        }
+        brushSizeBinding.brushSizeMinus2.setOnClickListener {
             drawingView.setSizeForBrush(20f)
             brushDialog.dismiss()
         }
-        brushSizeBinding.brushSizeLarge.setOnClickListener {
+        brushSizeBinding.brushSizePlus.setOnClickListener {
+            drawingView.setSizeForBrush(25f)
+            brushDialog.dismiss()
+        }
+        brushSizeBinding.brushSizePlus1.setOnClickListener {
             drawingView.setSizeForBrush(30f)
             brushDialog.dismiss()
         }
+        brushSizeBinding.brushSizePlus2.setOnClickListener {
+            drawingView.setSizeForBrush(35f)
+            brushDialog.dismiss()
+        }
+        brushSizeBinding.brushSizeLarge.setOnClickListener {
+            drawingView.setSizeForBrush(40f)
+            brushDialog.dismiss()
+        }
+        brushSizeBinding.brushSizeLarge2.setOnClickListener {
+            drawingView.setSizeForBrush(45f)
+            brushDialog.dismiss()
+        }
+
         brushDialog.show()
     }
 }
