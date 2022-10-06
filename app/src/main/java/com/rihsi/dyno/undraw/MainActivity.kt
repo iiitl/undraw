@@ -4,7 +4,6 @@ import android.Manifest
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -12,6 +11,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.snackbar.Snackbar
 import com.rihsi.dyno.undraw.databinding.ActivityMainBinding
 import com.rihsi.dyno.undraw.databinding.DialogBrushSizeBinding
@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     private var mImageButtonCurrentPaint: ImageButton? = null
 
     private lateinit var binding: ActivityMainBinding
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         binding.ibUndo.setOnClickListener { drawingView.undo() }
         binding.ibRedo.setOnClickListener { drawingView.redo() }
         binding.ibClear.setOnClickListener { drawingView.clear() }
-
         binding.ibGallery.setOnClickListener {
             if (isReadStorageAllowed()) {
                 openGallery()
@@ -124,18 +125,8 @@ class MainActivity : AppCompatActivity() {
         var brushSizeBinding = DialogBrushSizeBinding.inflate(layoutInflater)
         brushDialog.setContentView(brushSizeBinding.root)
         brushDialog.setTitle("Brush Size: ")
-
-        brushSizeBinding.brushSizeMinus.setOnClickListener {
-            drawingView.setSizeForBrush(10f)
-            brushDialog.dismiss()
-        }
-        brushSizeBinding.brushSizePlus.setOnClickListener {
-            drawingView.setSizeForBrush(20f)
-            brushDialog.dismiss()
-        }
-        brushSizeBinding.brushSizeLarge.setOnClickListener {
-            drawingView.setSizeForBrush(30f)
-            brushDialog.dismiss()
+        brushSizeBinding.slidermo.addOnChangeListener { slider, value, fromUser ->
+            binding.drawingView.setSizeForBrush(slider.value)
         }
         brushDialog.show()
     }

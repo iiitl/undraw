@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -8,39 +9,18 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/brush_size_minus"
-            android:layout_width="wrap_content"
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slidermo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="small image"
-            android:src="@drawable/ic_brush_size_minus"
-            app:layout_constraintBottom_toTopOf="@+id/brush_size_plus"
+            android:valueFrom="0.0f"
+            android:valueTo="40.0f"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/brush_size_plus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="large image"
-            android:src="@drawable/ic_brush_size_plus"
-            app:layout_constraintBottom_toTopOf="@id/brush_size_large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brush_size_minus" />
-
-        <ImageButton
-            android:id="@+id/brush_size_large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="large image"
-            android:src="@drawable/ic_brush_size_large"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brush_size_plus" />
-
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="312dp">
+        </com.google.android.material.slider.Slider>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
