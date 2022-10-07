@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import yuku.ambilwarna.AmbilWarnaDialog
 import java.io.File
 import java.io.FileOutputStream
 
@@ -17,7 +18,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     private var mDrawPaint: Paint? = null
     private var mCanvasPaint: Paint? = null
     private var mBrushSize: Float = 0.toFloat()
-    private var color = Color.BLACK
+    private var mcolor = Color.BLACK
     private var canvas: Canvas? = null  // it is the background on which we draw
     private var mPaths = ArrayList<CustomPath>()
     private val mUndoPaths = ArrayList<CustomPath>()
@@ -28,8 +29,8 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
 
     private fun setUpDrawing() {
         mDrawPaint = Paint()
-        mDrawPath = CustomPath(color, mBrushSize)
-        mDrawPaint!!.color = color
+        mDrawPath = CustomPath(mcolor, mBrushSize)
+        mDrawPaint!!.color = mcolor
         mDrawPaint!!.style = Paint.Style.STROKE // This is to draw a STROKE style
         mDrawPaint!!.strokeJoin = Paint.Join.ROUND // This is for store join
         mDrawPaint!!.strokeCap = Paint.Cap.ROUND // This is for stroke Cap
@@ -40,6 +41,15 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         super.onSizeChanged(w, h, oldw, oldh)
         mCanvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
         canvas = Canvas(mCanvasBitmap!!)
+    }
+    fun openColorPicker() {
+        val colorPicker = AmbilWarnaDialog(context, mcolor, object : AmbilWarnaDialog.OnAmbilWarnaListener {
+            override fun onCancel(dialog: AmbilWarnaDialog) {}
+            override fun onOk(dialog: AmbilWarnaDialog, color: Int) {
+                mcolor = color
+            }
+        })
+        colorPicker.show()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -64,7 +74,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
 
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
-                mDrawPath!!.color = color
+                mDrawPath!!.color = mcolor
                 mDrawPath!!.brushThickness = mBrushSize
                 mDrawPath!!.reset()
                 if (touchX != null) {
@@ -81,7 +91,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
             }
             MotionEvent.ACTION_UP -> {
                 mPaths.add(mDrawPath!!)
-                mDrawPath = CustomPath(color, mBrushSize)
+                mDrawPath = CustomPath(mcolor, mBrushSize)
             }
             else -> return false
         }

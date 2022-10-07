@@ -26,11 +26,12 @@ import com.rihsi.dyno.undraw.databinding.ActivityMainBinding
 import com.rihsi.dyno.undraw.databinding.DialogBrushSizeBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withContext import yuku.ambilwarna.AmbilWarnaDialog
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+//import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding.ibUndo.setOnClickListener { drawingView.undo() }
         binding.ibRedo.setOnClickListener { drawingView.redo() }
         binding.ibClear.setOnClickListener { drawingView.clear() }
-
+        binding.pickcolour.setOnClickListener{drawingView.openColorPicker()}
         binding.ibGallery.setOnClickListener {
             if (isReadStorageAllowed()) {
                 openGallery()
@@ -126,6 +127,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun requestReadStoragePermission() {
         ActivityCompat.requestPermissions(
